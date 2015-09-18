@@ -4,7 +4,6 @@
 	
 	var AssignmentsController = function(selectedAssignment, submissionsCollection, assignmentsCollection, SubmissionsService, AssignmentsService) {
 		this.submissionsCollection = submissionsCollection;
-		console.log(submissionsCollection)
 		this.assignmentsCollection = assignmentsCollection;
 		this.selectedAssignment = selectedAssignment;
 	};

@@ -12,26 +12,21 @@
 		service.getAll = function(pages) {
 			var deferred = $q.defer();
 			// Testing cron
-			var api =[
-				UtilityService.apiBase,
-				'assignments?',
-				UtilityService.accessToken,
-				'&page=',
-				pages || 1
-				].join('');
-				
+			var api =[UtilityService.apiBase,'assignments?',UtilityService.accessToken,'&page=',pages || 1].join('');
 			
 			$http.get(api).then(
 				function(res) {
-					console.log('Get all data', res)
+					console.log('Get all data', res.data)
 					deferred.resolve(res.data);
 					res.data.forEach(cacheIT);
-				}, function(err) {
+				},
+				function(err) {
 					deferred.reject(err)	
 					throw err
-			});
+				}
+			);
 			
-			return deferred.promise; 
+			return deferred.promise;
 		};
 		
 		service.get = function(assignment_id) {
