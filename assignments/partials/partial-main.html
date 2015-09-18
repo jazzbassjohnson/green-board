@@ -1,0 +1,27 @@
+<div class="row">
+	<h1>Inbox</h1>
+	<div class="col-md-3">
+		<ul class="table">
+			<li ng-repeat=" assignment in AMController.assignmentsCollection">
+				<a ui-sref="assignments({assignment_ID: assignment.id, creator: assignment.creator.id, })">{{assignment.title}}</a>
+			</li>
+		</ul>
+	</div>
+	<div class="col-md-6 offset-md-3">
+	<tabset>
+		
+		<tab heading="Assignments"></tab>
+		<tab heading="Submissions">
+			<accordion close-others="true">
+				<accordion-group ng-repeat="submissions in AMController.submissionsCollection" heading="{{submissions.creator.first_name}}" is-open="true" >
+					{{submissions.content}}
+				</accordion-group>
+			</accordion>
+		</tab>
+		
+		</tab>
+	</tabset>
+		
+	</div>
+	
+</div>
