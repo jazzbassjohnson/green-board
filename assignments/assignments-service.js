@@ -23,7 +23,7 @@
 			
 			$http.get(api).then(
 				function(res) {
-					console.log(res)
+					console.log('Get all data', res)
 					deferred.resolve(res.data);
 					res.data.forEach(cacheIT);
 				}, function(err) {

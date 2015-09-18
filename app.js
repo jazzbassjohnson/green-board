@@ -6,6 +6,7 @@
 		'UserModels',
 		'gb.utils',
 		'greenBoard.assigments',
+		'ngAnimate'
 	])
 	.config(function($stateProvider, $urlRouterProvider) {
 

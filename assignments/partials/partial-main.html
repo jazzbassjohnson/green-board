@@ -13,7 +13,7 @@
 		<tab heading="Assignments"></tab>
 		<tab heading="Submissions">
 			<accordion close-others="true">
-				<accordion-group ng-repeat="submissions in AMController.submissionsCollection" heading="{{submissions.creator.first_name}}" is-open="true" >
+				<accordion-group ng-repeat="submissions in AMController.submissionsCollection" heading="{{submissions.creator.first_name}}" ng-animation="slide" >
 					{{submissions.content}}
 				</accordion-group>
 			</accordion>
