@@ -12,7 +12,8 @@
 		'gb.utils',
 		'ui.router',
 		'ui.bootstrap',
-		'UserModels'
+		'userdata'
+		
 	])
 	.controller('AssignmentsController', [
 		'selectedAssignment',

@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 	
-	var SubmissionsService = function($http, $q, UtilityService, $User) {
+	var SubmissionsService = function($http, $q, UtilityService, CreatorModels) {
 		var service = {};
 		
 		service.get = function(assignment_id, creator_id) {
@@ -12,7 +12,7 @@
 				'assignment_id=',
 				assignment_id,
 				'assignment_creator_id=',
-				$User.id || creator_id,
+				creator_id,
 				UtilityService.accessToken,
 				// '&page=',
 				// pages || 1
@@ -58,6 +58,6 @@
 	}
 	
 	angular.module('greenBoard.assigments')
-	.service('SubmissionsService', ['$http', '$q', 'UtilityService', '$User', SubmissionsService]);	
+	.service('SubmissionsService', ['$http', '$q', 'UtilityService', 'CreatorModels', SubmissionsService]);	
 })();
 

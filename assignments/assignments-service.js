@@ -8,11 +8,14 @@
 			cache[assignment.id] = assignment;
 		};
 		
-		
+		// get all assignments
+		// use the pages arguement to request additial pages if available
 		service.getAll = function(pages) {
 			var deferred = $q.defer();
-			// Testing cron
+			
+			// construct an api
 			var api =[UtilityService.apiBase,'assignments?',UtilityService.accessToken,'&page=',pages || 1].join('');
+			
 			
 			$http.get(api).then(
 				function(res) {
