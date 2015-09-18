@@ -10,7 +10,12 @@
 	<div class="col-md-6 offset-md-3">
 	<tabset>
 		
-		<tab heading="Assignments"></tab>
+		<tab heading="Assignments">
+			<div class="container">
+				
+			</div>
+			
+		</tab>
 		<tab heading="Submissions">
 			<accordion close-others="true">
 				<accordion-group ng-repeat="submissions in AMController.submissionsCollection" heading="{{submissions.creator.first_name}}" ng-animation="slide" >

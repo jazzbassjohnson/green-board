@@ -6,17 +6,7 @@
 		
 		service.get = function(assignment_id, creator_id) {
 			var deferred = $q.defer();
-			var api =[
-				UtilityService.apiBase,
-				'assignment_submissions?',
-				'assignment_id=',
-				assignment_id,
-				'assignment_creator_id=',
-				creator_id,
-				UtilityService.accessToken,
-				// '&page=',
-				// pages || 1
-				].join('');
+			var api =[UtilityService.apiBase, 'assignment_submissions?', 'assignment_id=', assignment_id, 'assignment_creator_id=', creator_id, UtilityService.accessToken].join('');
 			// var api = [UtilityService.apiBase, 'assignment_submissions?', UtilityService.token, '&per_page=', page || 1].join('');
 			$http.get(api).then(
 				function(res) {
@@ -33,14 +23,8 @@
 		
 		service.getAll = function(pages) {
 			var deferred = $q.defer();
-			var api =[
-				UtilityService.apiBase,
-				'assignment_submissions?',
-				UtilityService.accessToken,
-				'&page=',
-				pages || 1
-				].join('');
-			// var api = [UtilityService.apiBase, 'assignment_submissions?', UtilityService.token, '&per_page=', page || 1].join('');
+			var api =[UtilityService.apiBase, 'assignment_submissions?', UtilityService.accessToken, '&page=', pages || 1].join('');
+
 			$http.get(api).then(
 				function(res) {
 					deferred.resolve(res.data)
