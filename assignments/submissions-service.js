@@ -21,7 +21,7 @@
 			$http.get(api).then(
 				function(res) {
 					deferred.resolve(res.data)
-					console.log(res.data)
+					console.log('get one submissions:', res.data)
 				}, function(err) {
 					deferred.resolve(err)	
 					throw err
@@ -44,7 +44,7 @@
 			$http.get(api).then(
 				function(res) {
 					deferred.resolve(res.data)
-					console.log(res.data)
+					console.log('get all submissions', res.data)
 				}, function(err) {
 					deferred.resolve(err)	
 					throw err
