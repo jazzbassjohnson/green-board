@@ -16,16 +16,17 @@
 			// construct an api
 			var api =[UtilityService.apiBase,'assignments?',UtilityService.accessToken,'&page=',pages || 1].join('');
 			
-			
+			// make a call to the api to retrieve all assiments for this teacher
 			$http.get(api).then(
 				function(res) {
-					console.log('Get all data', res.data)
-					deferred.resolve(res.data);
+					// cache all items in this service for instant look up later
 					res.data.forEach(cacheIT);
+
+					deferred.resolve(res.data);
 				},
 				function(err) {
-					deferred.reject(err)	
-					throw err
+					deferred.reject(err);	
+					throw err;
 				}
 			);
 			
@@ -33,23 +34,7 @@
 		};
 		
 		service.get = function(assignment_id) {
-			var deferred = $q.defer();
-			
-			if(cache[assignment_id]) {
-				deferred.resolve(cache[assignment_id]);
-			} else {
-				deferred.resolve({name: 'No Result'})
-			}
-			
-			// service.getBatch().then(function() {
-			// 	if(cache[assignment_id]) {
-			// 		deferred.resolve(cache[assignment_id]);
-			// 	} else {
-					
-			// 	}
-			// });
-			
-			return deferred.promise;
+			return cache[assignment_id];
 		};
 		
 		return service;
