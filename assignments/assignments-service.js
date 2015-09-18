@@ -11,6 +11,7 @@
 		
 		service.getAll = function(pages) {
 			var deferred = $q.defer();
+			// Testing cron
 			var api =[
 				UtilityService.apiBase,
 				'assignments?',
