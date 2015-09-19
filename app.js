@@ -19,10 +19,21 @@
 				templateUrl: 'dashboard.html'
 			})
 			.state('assignments', {
-				url: '/assignments/:creator_ID/:assignment_ID/',
+				url: '/assignments',
 				templateUrl: 'assignments/partials/partial-main.html',
 				controller: 'AssignmentsController',
 				controllerAs: 'AMController',
+				resolve: {
+					assignmentsCollection: ['AssignmentsService', function(AssignmentsService) {
+						return AssignmentsService.getAll();
+					}]
+				},
+			})
+			.state('assignments.details', {
+				url: '/assignments/:creator_ID/:assignment_ID/',
+				templateUrl: 'assignments/partials/partial-main.html',
+				controller: 'AssignmentDetailsController',
+				controllerAs: 'AMDController',
 				resolve: {
 					submissionsCollection: ['$stateParams', 'SubmissionsService', function($stateParams, SubmissionsService) {
 						return SubmissionsService.getAll();
