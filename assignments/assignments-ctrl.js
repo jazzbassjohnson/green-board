@@ -6,6 +6,7 @@
 		this.submissionsCollection = submissionsCollection;
 		this.assignmentsCollection = assignmentsCollection;
 		this.selectedAssignment = selectedAssignment;
+		console.log('selectedAssignment', selectedAssignment)
 	};
 	
 	angular.module('greenBoard.assigments', [

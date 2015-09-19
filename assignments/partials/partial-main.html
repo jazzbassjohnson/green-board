@@ -3,7 +3,7 @@
 	<div class="col-md-3">
 		<ul class="table">
 			<li ng-repeat=" assignment in AMController.assignmentsCollection">
-				<a ui-sref="assignments({assignment_ID: assignment.id, creator: assignment.creator.id, })">{{assignment.title}}</a>
+				<a ui-sref="assignments({assignment_ID: assignment.id, creator_ID: assignment.creator.id })">{{assignment.title}}</a>
 			</li>
 		</ul>
 	</div>
@@ -12,7 +12,12 @@
 		
 		<tab heading="Assignments">
 			<div class="container">
-				
+				<h1>
+					{{AMController.selectedAssignment.title}}
+				</h1>
+				<p>
+					{{AMController.selectedAssignment.content}}
+				</p>
 			</div>
 			
 		</tab>

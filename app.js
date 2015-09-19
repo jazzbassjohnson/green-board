@@ -20,7 +20,7 @@
 				templateUrl: 'dashboard.html'
 			})
 			.state('assignments', {
-				url: '/assignments/:assignment_ID&:creator',
+				url: '/assignments/:creator_ID/:assignment_ID/',
 				templateUrl: 'assignments/partials/partial-main.html',
 				controller: 'AssignmentsController',
 				controllerAs: 'AMController',
@@ -32,7 +32,7 @@
 						return AssignmentsService.getAll();
 					}],
 					selectedAssignment: ['$stateParams', 'AssignmentsService', function($stateParams, AssignmentsService) {
-						return AssignmentsService.get($stateParams.assignment_ID, $stateParams.creator ) || null;
+						return AssignmentsService.get($stateParams.assignment_ID, $stateParams.creator_ID);
 					}]
 				},
 			});

@@ -34,6 +34,7 @@
 		};
 		
 		service.get = function(assignment_id) {
+			console.log('get one assignment', cache[assignment_id]);
 			return cache[assignment_id];
 		};
 		
