@@ -34,8 +34,24 @@
 		};
 		
 		service.get = function(assignment_id) {
-			console.log('get one assignment', cache[assignment_id]);
-			return cache[assignment_id];
+			var deferred = $q.defer();
+			
+			if(cache[assignment_id]){
+				deferred.resolve(cache[assignment_id]);
+				return deferred.promise;	
+			}
+			
+			var api =[UtilityService.apiBase,'assignments/', assignment_id, '?', UtilityService.accessToken].join('');
+			
+			$http.get(api).then(function(res) {
+				deferred.resolve(res.data)
+			},
+			function(err) {
+				deferred.reject(err);
+				throw err;
+			});
+			
+			return deferred.promise;
 		};
 		
 		return service;

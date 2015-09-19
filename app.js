@@ -3,7 +3,6 @@
 	
 	angular.module('greenBoard', [
 		'ui.router',
-		'UserModels',
 		'gb.utils',
 		'greenBoard.assigments',
 		'ngAnimate'

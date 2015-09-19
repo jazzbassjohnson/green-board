@@ -23,8 +23,11 @@
 		</tab>
 		<tab heading="Submissions">
 			<accordion close-others="true">
-				<accordion-group ng-repeat="submissions in AMController.submissionsCollection" heading="{{submissions.creator.first_name}}" ng-animation="slide" >
-					<img src="{{submissions.creator.avatars.small}}"/>
+				<accordion-group ng-repeat="submissions in AMController.submissionsCollection"  ng-animation="slide" >
+					<accordion-heading>
+						<img src="{{submissions.creator.avatars.large}}"/>
+						<h2>{{submissions.creator.first_name}} {{submissions.creator.last_name}}</h2>
+					</accordion-heading>
 					
 					{{submissions.content}}
 				</accordion-group>
