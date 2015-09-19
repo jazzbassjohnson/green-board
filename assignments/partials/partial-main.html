@@ -16,7 +16,7 @@
 					{{AMController.selectedAssignment.title}}
 				</h1>
 				<p>
-					{{AMController.selectedAssignment.content}}
+					{{AMController.selectedAssignment.description}}
 				</p>
 			</div>
 			
@@ -24,6 +24,8 @@
 		<tab heading="Submissions">
 			<accordion close-others="true">
 				<accordion-group ng-repeat="submissions in AMController.submissionsCollection" heading="{{submissions.creator.first_name}}" ng-animation="slide" >
+					<img src="{{submissions.creator.avatars.small}}"/>
+					
 					{{submissions.content}}
 				</accordion-group>
 			</accordion>
