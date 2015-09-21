@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	
-	var AssignmentsService = function($http, $q, UtilityService) {
+	var AssignmentService = function($http, $q, UtilityService) {
 		var service = {};
 		var cache = {};
 		var cacheIT = function(assignment) {
@@ -59,6 +59,6 @@
 	
 	
 	angular.module('greenBoard.assigments')
-	.service('AssignmentsService', ['$http', '$q', 'UtilityService', AssignmentsService]);
+	.service('AssignmentService', ['$http', '$q', 'UtilityService', AssignmentService]);
 	
 })();

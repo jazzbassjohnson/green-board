@@ -2,7 +2,7 @@
 (function() {
 	'use strict';
 	
-	var AssignmentsController = function(selectedAssignment, submissionsCollection, assignmentsCollection, SubmissionsService, AssignmentsService) {
+	var AssignmentListController = function(selectedAssignment, submissionsCollection, assignmentsCollection, SubmissionsService, AssignmentsService) {
 		this.submissionsCollection = submissionsCollection;
 		this.assignmentsCollection = assignmentsCollection;
 		this.selectedAssignment = selectedAssignment;
@@ -16,12 +16,12 @@
 		'userdata'
 		
 	])
-	.controller('AssignmentsController', [
+	.controller('AssignmentListController', [
 		'selectedAssignment',
 		'submissionsCollection',
 		'assignmentsCollection',
 		'SubmissionsService',
 		'AssignmentsService',
-	AssignmentsController])
+	AssignmentListController])
 
 })();

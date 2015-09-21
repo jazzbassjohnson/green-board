@@ -14,28 +14,41 @@
 		
 		// Now set up the states
 		$stateProvider
+		
+			// Define a home 'Welcome' page
 			.state('home', {
 				url: '/home',
 				templateUrl: 'dashboard.html'
 			})
+			
+			// define an assignments state
 			.state('assignments', {
-				url: '/assignments/:creator_ID/:assignment_ID/',
+				url: '/assignments/:creatorID/:assignmentID/',
 				views: {
-					'': {},
+					'': {
+						templateUrl: 'partial-assignments-main.html'
+					},
 					'sidebar@assignments' : {
-						
+						templateUrl: 'assignments/partials/partial-sidebar.html',
+						controller: 'AssignmentListController',
+						controllerAs: 'ALCtrl',
+						resolve: {
+							assignmentList:['$stateParams', 'AssignmentService', function($stateParams, AssignmentService) {
+								return AssignmentService.getAll() || [];
+							}]
+						}
 					},
 					'details@assignments': {
-						templateURL: 'assignments/parials/partial-details.html',
+						templateUrl: 'assignments/partials/partial-details.html',
 						controller: 'AssignmentDetailsController',
 						controllerAs: 'ADCtrl',
 						resolve: {
 							assignmentDetails: ['$stateParams', 'AssignmentService', function($stateParams, AssignmentService){
-								return AssignmentService.getDetails($stateParams.assignementID, $stateParams)
+								return AssignmentService.getDetails($stateParams.assignementID, $stateParams.creatorID) || null;; 
 							}],
-							submissions: [function() {
-								
-							}];
+							submissions: ['$stateParams', 'SubmissionService', function($stateParams, SubmissionService) {
+								return	SubmissionService.getSubmissions($stateParams.assignmentID, $stateParams.creatorID) || null;
+							}]
 						}
 					}
 				},
