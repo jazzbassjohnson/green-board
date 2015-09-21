@@ -29,7 +29,7 @@
 			
 			// define an assignments state
 			.state('assignments', {
-				url: '/assignments/:creatorID:assignmentID',
+				url: '/assignments/:creatorID/:assignmentID',
 				views: {
 					'': {
 						templateUrl: '/assignments/partials/partial-assignments-main.html'
@@ -50,10 +50,10 @@
 						controllerAs: 'ADCtrl',
 						resolve: {
 							assignmentDetails: ['$stateParams', 'AssignmentService', function($stateParams, AssignmentService){
-								return !$stateParams.assignementID ? null : AssignmentService.getDetails($stateParams.assignementID); 
+								return !$stateParams.assignmentID ? null : AssignmentService.getDetails($stateParams.assignmentID); 
 							}],
 							submissions: ['$stateParams', 'SubmissionService', function($stateParams, SubmissionService) {
-								return	!$stateParams.assignementID || !$stateParams.creatorID ? [] : SubmissionService.getSubmissions($stateParams.assignmentID, $stateParams.creatorID);
+								return	!$stateParams.assignmentID || !$stateParams.creatorID ? [] : SubmissionService.getSubmissions($stateParams.assignmentID, $stateParams.creatorID);
 							}]
 						}
 					}
