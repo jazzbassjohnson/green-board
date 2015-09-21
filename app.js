@@ -10,7 +10,7 @@
 	.config(function($stateProvider, $urlRouterProvider) {
 
 		// For any unmatched url, redirect to /dashboard
-		$urlRouterProvider.otherwise('/assingments');
+		$urlRouterProvider.otherwise('/assingments/');
 		
 		// Now set up the states
 		$stateProvider
@@ -18,12 +18,18 @@
 			// Define a home 'Welcome' page
 			.state('home', {
 				url: '/home',
-				templateUrl: 'home.html'
+				templateUrl: 'home/partials/partial-home.html'
 			})
+			
+			// // define a parent state
+			// .state('assignments', {
+			// 	url: '/assignments',
+			// 	template
+			// })
 			
 			// define an assignments state
 			.state('assignments', {
-				url: '/assignments/:creatorID/:assignmentID/',
+				url: '/assignments/:creatorID:assignmentID',
 				views: {
 					'': {
 						templateUrl: 'assignments/partials/partial-assignments-main.html'
