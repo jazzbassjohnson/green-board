@@ -20,6 +20,11 @@
 			})
 			.state('assignments', {
 				url: '/assignments/:creator_ID/:assignment_ID/',
+				views: {
+					sidebar@: {
+						
+					}
+				},
 				templateUrl: 'assignments/partials/partial-main.html',
 				controller: 'AssignmentsController',
 				controllerAs: 'AMController',
