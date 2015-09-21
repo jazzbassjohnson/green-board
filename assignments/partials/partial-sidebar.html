@@ -1,0 +1,5 @@
+<div class="list-group">
+  <a ng-repeat="assignment in AlCtrl.assignmentList" ui-sref="assignments({assignmentID: assignment.id, creatorID: assignmnet.creator})" class="list-group-item">
+    {{assignment.title}}
+  </a>
+</div>

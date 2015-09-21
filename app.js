@@ -26,7 +26,7 @@
 				url: '/assignments/:creatorID/:assignmentID/',
 				views: {
 					'': {
-						templateUrl: 'partial-assignments-main.html'
+						templateUrl: 'assignments/partials/partial-assignments-main.html'
 					},
 					'sidebar@assignments' : {
 						templateUrl: 'assignments/partials/partial-sidebar.html',
