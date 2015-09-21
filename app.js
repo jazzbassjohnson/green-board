@@ -4,7 +4,7 @@
 	angular.module('greenBoard', [
 		'ui.router',
 		'gb.utils',
-		'greenBoard.assigments',
+		'greenBoard.assignments',
 		'ngAnimate'
 	])
 	.config(function($stateProvider, $urlRouterProvider) {
