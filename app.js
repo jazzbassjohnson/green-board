@@ -18,7 +18,7 @@
 			// Define a home 'Welcome' page
 			.state('home', {
 				url: '/home',
-				templateUrl: 'dashboard.html'
+				templateUrl: 'home.html'
 			})
 			
 			// define an assignments state
@@ -51,21 +51,7 @@
 							}]
 						}
 					}
-				},
-				templateUrl: 'assignments/partials/partial-main.html',
-				controller: 'AssignmentsController',
-				controllerAs: 'AMController',
-				resolve: {
-					submissionsCollection: ['$stateParams', 'SubmissionsService', function($stateParams, SubmissionsService) {
-						return SubmissionsService.getAll();
-					}],
-					assignmentsCollection: ['AssignmentsService', function(AssignmentsService) {
-						return AssignmentsService.getAll();
-					}],
-					selectedAssignment: ['$stateParams', 'AssignmentsService', function($stateParams, AssignmentsService) {
-						return AssignmentsService.get($stateParams.assignment_ID, $stateParams.creator_ID);
-					}]
-				},
+				}
 			});
 	
 	});
