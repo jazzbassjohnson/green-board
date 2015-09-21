@@ -2,12 +2,12 @@
 	<h1>Inbox</h1>
 	<div class="col-md-3">
 		<ul class="table">
-			<li ng-repeat=" assignment in AMDController.assignmentsCollection">
-				<a ui-sref="assignments.details({assignment_ID: assignment.id, creator_ID: assignment.creator.id })">{{assignment.title}}</a>
+			<li ng-repeat=" assignment in AMController.assignmentsCollection">
+				<a ui-sref="assignments({assignment_ID: assignment.id, creator_ID: assignment.creator.id })">{{assignment.title}}</a>
 			</li>
 		</ul>
 	</div>
-	<div class="col-md-6 offset-md-3"ng-show="AMController">
+	<div class="col-md-6 offset-md-3">
 	<tabset >
 		
 		<tab heading="Assignments">
