@@ -1,10 +1,10 @@
 (function() {
 	'use strict';
 	
-	var AssignmentDetailsController = function(assignmentsCollection){
-		this.assignmentsCollection = assignmentsCollection;
+	var AssignmentDetailsController = function(assignmentList){
+		this.assignmentList = assignmentList;
 	};
 	
 	angular.module('greenBoard.assignments')
-		.controller('AssignmentDetailsController', ['assignmentsCollection', AssignmentDetailsController])
+		.controller('AssignmentDetailsController', ['assignmentList', AssignmentDetailsController])
 })();

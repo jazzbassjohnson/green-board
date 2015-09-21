@@ -18,7 +18,7 @@
 			// Define a home 'Welcome' page
 			.state('home', {
 				url: '/home',
-				templateUrl: 'home/partials/partial-home.html'
+				templateUrl: '/home/partials/partial-home.html'
 			})
 			
 			// // define a parent state
@@ -32,10 +32,10 @@
 				url: '/assignments/:creatorID:assignmentID',
 				views: {
 					'': {
-						templateUrl: 'assignments/partials/partial-assignments-main.html'
+						templateUrl: '/assignments/partials/partial-assignments-main.html'
 					},
 					'sidebar@assignments' : {
-						templateUrl: 'assignments/partials/partial-sidebar.html',
+						templateUrl: '/assignments/partials/partial-sidebar.html',
 						controller: 'AssignmentListController',
 						controllerAs: 'ALCtrl',
 						resolve: {
@@ -45,15 +45,15 @@
 						}
 					},
 					'details@assignments': {
-						templateUrl: 'assignments/partials/partial-details.html',
+						templateUrl: '/assignments/partials/partial-details.html',
 						controller: 'AssignmentDetailsController',
 						controllerAs: 'ADCtrl',
 						resolve: {
 							assignmentDetails: ['$stateParams', 'AssignmentService', function($stateParams, AssignmentService){
-								return AssignmentService.getDetails($stateParams.assignementID, $stateParams.creatorID) || null;; 
+								return !$stateParams.assignementID ? null : AssignmentService.getDetails($stateParams.assignementID); 
 							}],
 							submissions: ['$stateParams', 'SubmissionService', function($stateParams, SubmissionService) {
-								return	SubmissionService.getSubmissions($stateParams.assignmentID, $stateParams.creatorID) || null;
+								return	!$stateParams.assignementID || !$stateParams.creatorID ? [] : SubmissionService.getSubmissions($stateParams.assignmentID, $stateParams.creatorID);
 							}]
 						}
 					}
