@@ -1,0 +1,42 @@
+<div class="col-md-14">
+	<div class="" ng-show="ADCtrl.assignmentDetails">
+	<tabset ng-show="ADCtrl.assignmentDetails">
+		<!--Assignment details view-->
+		<tab heading="Description">
+			<div>
+				<h1>
+					{{ADCtrl.assignmentDetails.title}}
+				</h1>
+				<p>
+					{{ADCtrl.assignmentDetails.description}}
+				</p>
+				<div>
+					<label>Due:</label>
+					<p>{{ADCtrl.assignmentDetails.due_at}</p>
+					<label>Teacher:</label> 
+					<p>{{ADCtrl.assignmentDetails.creator.user_title}} {{ADCtrl.assignmentDetails.creator.first_name}} {{ADCtrl.assignmentDetails.creator.last_name}}</p>
+				</div>
+			</div>
+		</tab>
+		
+		<!--Submissions view-->
+		<tab heading="Submissions" ng-show="ADCtrl.submissions.length">
+			<accordion close-others="true">
+				<accordion-group ng-repeat="submissions in ADCtrl.submissions"  ng-animation="slide" >
+					<accordion-heading>
+						<h4>
+							<!--how to switch to a smaller picture on a smaller screen?-->
+							<img src="{{submissions.creator.avatars.large}}"/>
+							{{submissions.creator.first_name}} {{submissions.creator.last_name}}
+						</h4>
+					</accordion-heading>
+					
+					{{submissions.content}}
+				</accordion-group>
+			</accordion>
+		</tab>
+		
+		</tab>
+	</tabset>
+	
+</div>

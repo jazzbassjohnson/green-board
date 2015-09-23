@@ -1,0 +1,8 @@
+.corkboard { 
+  background: url('https://s-media-cache-ak0.pinimg.com/736x/dd/e4/93/dde4933baf8dbac6e3b783c2538c0bfa.jpg'); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 25em;
+  color: white
+}
